@@ -4,6 +4,7 @@ services:
   gitlab:
     image: gitlab/gitlab-ce:12.3.8-ce.0
 #    image: sstruss/gitlab-ce-armhf
+#    image: jubilee2/rpi-gitlab-ce
     ports:
       - '8880:80'
       - '8443:443'
