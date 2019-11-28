@@ -3,6 +3,7 @@ version: '3.3'
 services:
   gitlab:
     image: gitlab/gitlab-ce:12.3.8-ce.0
+#    image: sstruss/gitlab-ce-armhf
     ports:
       - '8880:80'
       - '8443:443'
