@@ -3,7 +3,6 @@ version: '3.3'
 services:
   mariadb:
     image: mariadb:10.3.20
-    restart: always
     ports:
       - '3306:3306'
     volumes:
@@ -14,3 +13,4 @@ services:
       MYSQL_USER: xuui
       MYSQL_PASSWORD: passwd
       MYSQL_ROOT_PASSWORD: rootpasswd@xuui
+    restart: always

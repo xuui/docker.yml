@@ -3,12 +3,12 @@ version: '3.3'
 services:
   gitlab:
     image: gitlab/gitlab-ce:12.3.8-ce.0
-    restart: always
-    volumes:
-      - ./conf:/etc/gitlab
-      - ./logs:/var/log/gitlab:rw
-      - ./data:/var/opt/gitlab:rw
     ports:
       - '8880:80'
       - '8443:443'
       - '8222:22'
+    volumes:
+      - ./conf:/etc/gitlab
+      - ./logs:/var/log/gitlab:rw
+      - ./data:/var/opt/gitlab:rw
+    restart: always
