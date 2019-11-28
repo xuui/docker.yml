@@ -1,4 +1,4 @@
-#docker pull gitlab/gitlab-ce:12.3.8-ce.0
+#Gitlab.
 version: '3.3'
 services:
   gitlab:
