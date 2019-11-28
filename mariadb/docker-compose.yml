@@ -6,11 +6,12 @@ services:
     ports:
       - '3306:3306'
     volumes:
-#      - ./etc/my.cnf:/etc/mysql/my.cnf
+#      - ./my.cnf:/etc/mysql/my.cnf
       - ./db.data:/var/lib/mysql:rw
     environment:
       MYSQL_DATABASE: xuuidb
       MYSQL_USER: xuui
       MYSQL_PASSWORD: passwd
       MYSQL_ROOT_PASSWORD: rootpasswd@xuui
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always

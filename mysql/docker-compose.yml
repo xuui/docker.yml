@@ -3,14 +3,18 @@ version: '3.3'
 services:
   mysqldb:
     image: mysql:5.7.28
-    restart: always
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./my.cnf:/etc/mysql/my.cnf
+      - ./db.data:/var/lib/mysql:rw
     environment:
       MYSQL_DATABASE: exampledb
       MYSQL_USER: exampleuser
       MYSQL_PASSWORD: examplepass
       MYSQL_RANDOM_ROOT_PASSWORD: rootexample
-    volumes:
-      - ./db:/var/lib/mysql:rw
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
 
 #  wordpress:
 #    image: wordpress
