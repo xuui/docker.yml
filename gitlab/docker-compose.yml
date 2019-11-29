@@ -11,6 +11,6 @@ services:
       - '8222:22'
     volumes:
       - ./conf:/etc/gitlab
-      - ./logs:/var/log/gitlab:rw
+      - ./logs:/var/log/gitlab
       - ./data:/var/opt/gitlab:rw
     restart: always
