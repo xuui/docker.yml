@@ -1,7 +1,7 @@
 # wiznote.
 version: '3.3'
 services:
-  cococWiz:
+  Wiz:
     image: wiznote/wizserver
     ports:
       - '80:80'
