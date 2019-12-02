@@ -1,0 +1,13 @@
+# wiznote.
+version: '3.3'
+services:
+  cococWiz:
+    image: wiznote/wizserver
+    ports:
+      - '80:80'
+    volumes:
+      - ./wizdata:/wiz/storage:rw
+    restart: always
+    environment:
+      SEARCH: true
+    command: -it
