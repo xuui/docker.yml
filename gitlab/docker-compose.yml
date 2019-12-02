@@ -11,6 +11,7 @@ services:
       - '8443:443'
       - '8822:22'
     volumes:
+      - ./gitlab.yml:/var/opt/gitlab/gitlab-rails/etc/gitlab.yml
       - ./conf:/etc/gitlab
       - ./logs:/var/log/gitlab
       - ./data:/var/opt/gitlab:rw

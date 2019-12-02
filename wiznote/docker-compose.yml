@@ -8,6 +8,3 @@ services:
     volumes:
       - ./wizdata:/wiz/storage:rw
     restart: always
-    environment:
-      SEARCH: true
-    command: -it
