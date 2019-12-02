@@ -2,13 +2,14 @@
 version: '3.3'
 services:
   gitlab:
-    image: gitlab/gitlab-ce:12.3.8-ce.0
+#    image: gitlab/gitlab-ce:12.3.8-ce.0
+    image: twang2218/gitlab-ce-zh
 #    image: sstruss/gitlab-ce-armhf
 #    image: jubilee2/rpi-gitlab-ce
     ports:
       - '8880:80'
       - '8443:443'
-      - '8222:22'
+      - '8822:22'
     volumes:
       - ./conf:/etc/gitlab
       - ./logs:/var/log/gitlab
