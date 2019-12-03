@@ -12,7 +12,7 @@ services:
       - '8822:22'
     volumes:
       - ./conf:/etc/gitlab
+      - ./etc:/var/opt/gitlab/gitlab-rails/etc
       - ./logs:/var/log/gitlab
       - ./data:/var/opt/gitlab:rw
-      - ./gitlab.yml:/var/opt/gitlab/gitlab-rails/etc/gitlab.yml
     restart: always
