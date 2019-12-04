@@ -1,2 +1,1 @@
-FROM php:7.3-apache
 FROM debian:buster-slim
