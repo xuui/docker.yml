@@ -81,7 +81,7 @@ ENV MARIADB_VERSION 1:10.3.20+maria~bionic
 # (https://downloads.mariadb.org/mariadb/+releases/)
 
 RUN set -e;\
-echo "deb http://ftp.osuosl.org/pub/mariadb/repo/$MARIADB_MAJOR/ubuntu bionic main" > /etc/apt/sources.list.d/mariadb.list; \
+echo "deb http://ftp.osuosl.org/pub/mariadb/repo/$MARIADB_MAJOR/debian bionic main" > /etc/apt/sources.list.d/mariadb.list; \
 { \
 echo 'Package: *'; \
 echo 'Pin: release o=MariaDB'; \
