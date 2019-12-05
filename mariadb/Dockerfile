@@ -77,6 +77,8 @@ apt-key list
 # bashbrew-architectures: amd64 arm64v8 ppc64le
 ENV MARIADB_MAJOR 10.3
 ENV MARIADB_VERSION 1:10.3.20+maria~bionic
+#ENV MARIADB_MAJOR 10.4
+#ENV MARIADB_VERSION 1:10.4.10+maria~bionic
 # release-status:Stable
 # (https://downloads.mariadb.org/mariadb/+releases/)
 
