@@ -1,0 +1,15 @@
+# NextCloud.
+version: '3.3'
+services:
+  nginx:
+    image: nextcloud:17.0.1-fpm-alpine
+    ports:
+      - '80:80'
+    volumes:
+      - ./nextcloud:/var/www/html
+      - ./apps:/var/www/html/custom_apps
+      - ./config:/var/www/html/config
+      - ./data:/var/www/html/data
+      - ./theme:/var/www/html/themes
+      - ./html:/usr/share/nginx/html:rw
+    restart: always
