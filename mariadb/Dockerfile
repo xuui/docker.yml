@@ -77,14 +77,14 @@ apt-key list
 
 # bashbrew-architectures: amd64 arm64v8 ppc64le
 ENV MARIADB_MAJOR 10.3
-ENV MARIADB_VERSION 1:10.3.20+maria~bionic
+ENV MARIADB_VERSION 1:10.3.20+maria~buster
 #ENV MARIADB_MAJOR 10.4
-#ENV MARIADB_VERSION 1:10.4.10+maria~bionic
+#ENV MARIADB_VERSION 1:10.4.10+maria~buster
 # release-status:Stable
 # (https://downloads.mariadb.org/mariadb/+releases/)
 
 RUN set -e;\
-echo "deb http://ftp.osuosl.org/pub/mariadb/repo/$MARIADB_MAJOR/debian bionic main" > /etc/apt/sources.list.d/mariadb.list; \
+echo "deb http://ftp.osuosl.org/pub/mariadb/repo/$MARIADB_MAJOR/debian buster main" > /etc/apt/sources.list.d/mariadb.list; \
 { \
 echo 'Package: *'; \
 echo 'Pin: release o=MariaDB'; \
