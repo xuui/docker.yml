@@ -11,3 +11,10 @@ $ docker ps -a -q // 查看所有容器ID
 $ docker stop $(docker ps -a -q) // stop停止所有容器
 $ docker rm $(docker ps -a -q) // remove删除所有容器
 ```
+
+## Pull Docker Base image:
+```
+docker pull alpine:3.10
+docker pull debian:buster-slim
+docker pull ubuntu:bionic
+```
