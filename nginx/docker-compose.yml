@@ -17,7 +17,7 @@ services:
       - ./nginx.d/uwsgi_params:/etc/nginx/uwsgi_params
       - ./nginx.d/win-utf:/etc/nginx/win-utf
       - ./logs:/var/log/nginx
-#      - ./html:/usr/share/nginx/html:rw
-      - ./html:/var/www/html:rw
+#      - ./htmls:/usr/share/nginx/html:rw
+      - ./htmls:/var/www/html:rw
 #      - ./webdav:/usr/share/webdav:rw
     restart: always
