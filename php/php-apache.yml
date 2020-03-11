@@ -7,5 +7,5 @@ services:
       - '80:80'
     volumes:
       - ./conf.d:/usr/local/etc/php/conf.d
-      - ./html:/var/www/html:rw
+      - ./htmls:/var/www/html:rw
     restart: always
