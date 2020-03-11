@@ -1,8 +1,10 @@
 # docker-Yml
 
-Ye! Everything is docker-compose.yml. docker-compose.yml Configuration. hahaha~~~!!!
+Ye! Everything is docker-compose.yml. hahaha!!!
 
-base for alpine linux
+The's docker-compose.yml Configuration.
+
+Base for alpine linux
 
 ```
 $ docker ps // 查看所有正在运行容器
