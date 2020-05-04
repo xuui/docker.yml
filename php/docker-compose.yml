@@ -2,12 +2,8 @@
 version: '3.3'
 services:
   apache:
-#    image: php:7.4.3-fpm-alpine
-    image: php:7.4.3-fpm-alpine3.10
-#    image: php:7.4.3-fpm-alpine3.11
-#    image: php:7.4.3-cli-alpine
-#    image: php:7.4.3-cli-alpine3.10
-#    image: php:7.4.3-cli-alpine3.11
+    image: php:7.4.5-fpm-alpine3.11
+#    image: php:7.3.17-fpm-alpine3.11
     ports:
       - '80:80'
     volumes:
