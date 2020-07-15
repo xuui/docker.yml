@@ -1,4 +1,4 @@
-# MariaDB.
+# dnsmasq.
 version: '3.3'
 services:
   dnsmasq:
