@@ -6,11 +6,12 @@ services:
     image: wiznote/wizserver
 #    image: wiznote/wizserver-armv7 #rpi
     ports:
-      - '80:80'
+      - '8088:80'
       - '9269:9269/udp'
     volumes:
       - ./wizdata:/wiz/storage:rw
       - /etc/localtime:/etc/localtime
     restart: always
-    environment:
+#    environment:
 #      SEARCH: 'true'
+
