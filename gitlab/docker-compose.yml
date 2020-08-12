@@ -1,4 +1,4 @@
-#Gitlab.
+# Gitlab.
 version: '3'
 services:
   gitlab:
