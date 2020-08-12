@@ -1,0 +1,13 @@
+# alpine-php-wordpress.
+# http://www.wiz.cn/zh-cn/docker
+version: '3'
+services:
+  Wiz:
+    image: etopian/alpine-php-wordpress
+    ports:
+      - '80:80'
+    volumes:
+      - ./data/sites/etopian.com:/DATA
+    restart: always
+    environment:
+       VIRTUAL_HOST: etopian.com,www.etopian.com
