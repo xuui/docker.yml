@@ -2,10 +2,10 @@
 version: '3'
 services:
   mariadb:
-    image: mariadb:10.4.12
-#    image: mariadb:10.3.22
-#    image: mariadb:10.2.31
-#    image: mariadb:10.1.44
+    image: mariadb:10.4.14
+#    image: mariadb:10.3.24
+#    image: mariadb:10.2.33
+#    image: mariadb:10.1.46
     ports:
       - '3306:3306'
     volumes:
