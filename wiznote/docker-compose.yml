@@ -1,6 +1,6 @@
 # wiznote.
 # http://www.wiz.cn/zh-cn/docker
-version: '3.3'
+version: '3'
 services:
   Wiz:
     image: wiznote/wizserver

@@ -1,5 +1,5 @@
 # Nginx.
-version: '3.3'
+version: '3'
 services:
   nginx:
     image: nginx:1.18.0-alpine

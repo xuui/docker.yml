@@ -1,5 +1,5 @@
 # PHP7.
-version: '3.3'
+version: '3'
 services:
   apache:
     image: php:7.4.5-fpm-alpine3.11

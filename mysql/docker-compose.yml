@@ -1,5 +1,5 @@
 # MySQL.
-version: '3.3'
+version: '3'
 services:
   mysqldb:
     image: mysql:8.0.19

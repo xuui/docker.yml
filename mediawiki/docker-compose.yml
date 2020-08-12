@@ -1,5 +1,5 @@
 # MediaWiki.
-version: '3.3'
+version: '3'
 services:
   mediawiki:
     image: mediawiki:1.32.5

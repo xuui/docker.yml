@@ -1,5 +1,5 @@
 # NextCloud.
-version: '3.3'
+version: '3'
 services:
   nginx:
     image: nextcloud:17.0.1-fpm-alpine

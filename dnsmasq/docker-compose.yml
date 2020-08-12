@@ -1,5 +1,5 @@
 # dnsmasq.
-version: '3.3'
+version: '3'
 services:
   dnsmasq:
     image: jpillora/dnsmasq
