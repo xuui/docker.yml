@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.12
 LABEL maintainer="dev@jpillora.com"
 # webproc release settings
 ENV WEBPROC_VERSION 0.2.2
