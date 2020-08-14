@@ -12,5 +12,5 @@ services:
       - ./wizdata:/wiz/storage:rw
 #      - /etc/localtime:/etc/localtime
     restart: always
-#    environment:
-#      SEARCH: 'true'
+    environment:
+      SEARCH: 'false'
