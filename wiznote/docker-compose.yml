@@ -13,4 +13,4 @@ services:
 #      - /etc/localtime:/etc/localtime
     restart: always
     environment:
-      SEARCH: 'false'
+      SEARCH: 'false' #'true'
