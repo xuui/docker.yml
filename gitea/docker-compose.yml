@@ -7,20 +7,18 @@ services:
 #    image: mephistoxol/gitea:latest # rpi
     ports:
       - "3000:3000"
-      - "22:22"
+      - "222:22"
     volumes:
       - ./data:/data:rw
-    depends_on:
-      - db
-    restart: always
-
-  db:
-    image: mariadb:10
-    restart: always
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     environment:
-      - MYSQL_ROOT_PASSWORD=changeme
-      - MYSQL_DATABASE=gitea
-      - MYSQL_USER=gitea
-      - MYSQL_PASSWORD=changeme
-    volumes:
-      - ./db/:/var/lib/mysql
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: always
+    networks:
+      - gitea
+
+networks:
+  gitea:
+    external: false
