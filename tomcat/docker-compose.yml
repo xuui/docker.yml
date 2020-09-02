@@ -1,0 +1,14 @@
+# dnsmasq.
+version: '3'
+services:
+  dnsmasq:
+    image: tomcat:8.5-jdk8-openjdk-slim-buster
+#    image: 9.0.37-jdk11-openjdk-slim-buster
+#    image: 10.0.0-jdk11-openjdk-slim-buster
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./conf:/usr/local/tomcat/conf
+      - ./webapps:/usr/local/tomcat/webapps:rw
+    container_name: tomcat
+    restart: always
