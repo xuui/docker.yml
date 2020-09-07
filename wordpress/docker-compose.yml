@@ -1,0 +1,19 @@
+# wordpress.
+version: '3'
+services:
+  wordpress:
+    image: wordpress:5.5.1-php7.4-apache
+#    image: wordpress:5.5.1-php7.3-apache
+#    image: wordpress:php7.4-apache
+#    image: wordpress:php7.3-apache
+#    image: wordpress:5.5.1-php7.4-fpm-alpine
+#    image: wordpress:5.5.1-php7.3-fpm-alpine
+#    image: wordpress:php7.4-fpm-alpine
+#    image: wordpress:php7.3-fpm-alpine
+#    build: .
+    ports:
+      - '80:80'
+    volumes:
+      - ./conf.d:/usr/local/etc/php/conf.d
+      - ./htmls:/var/www/html:rw
+    restart: always

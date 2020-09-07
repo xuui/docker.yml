@@ -2,8 +2,8 @@
 version: '3.3'
 services:
   apache:
-#    image: php:7.4.10-apache
-    image: php:7.3.22-apache
+    image: php:7.4.10-apache
+#    image: php:7.3.22-apache
     ports:
       - '80:80'
     volumes:

@@ -4,8 +4,10 @@ services:
   apache:
     image: php:7.4.10-fpm-alpine3.12
 #    image: php:7.3.22-fpm-alpine3.12
+#    build: .
     ports:
       - '80:80'
+      - '9000:9000'
     volumes:
       - ./conf.d:/usr/local/etc/php/conf.d
       - ./htmls:/var/www/html:rw
