@@ -1,6 +1,7 @@
 # DO NOT EDIT: created by update.sh from Dockerfile-alpine.template
 FROM php:7.3.22-fpm-alpine3.12
 
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories;
 # entrypoint.sh and cron.sh dependencies
 RUN set -ex; \
     \

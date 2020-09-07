@@ -21,7 +21,27 @@ $ docker rm $(docker ps -a -q) // remove删除所有容器
 ```
 docker pull alpine:3.12
 docker pull debian:buster-slim
-docker pull ubuntu:bionic
-docker pull nginx:1.19.1-
+docker pull ubuntu:bionic   #18.04
+docker pull ubuntu:focal    #20.04
+docker pull nginx:1.19.1-alpine
+docker pull php:7.3.22-fpm-alpine3.12
+docker pull php:7.4.10-fpm-alpine3.12
 
+```
+
+## Dockerfile Mirrors:
+Alpine:
+```
+FROM alpine:3.12
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories;
+```
+Debian:
+```
+FROM debian:buster-slim
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;
+```
+Ubuntu:
+```
+FROM ubuntu:focal
+sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 ```
