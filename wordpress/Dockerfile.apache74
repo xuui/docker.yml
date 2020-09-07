@@ -1,4 +1,4 @@
-FROM php:7.4.10-apache
+FROM php:7.4.10-apache-buster
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;
 
 # persistent dependencies
