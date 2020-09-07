@@ -2,12 +2,15 @@
 version: '3'
 services:
   dnsmasq:
-    image: tomcat:10.0.0-jdk8-openjdk-slim
+     image: tomcat:9.0.37-jdk8-openjdk-slim
 #    image: tomcat:8.5.57-jdk8-openjdk-slim
-#    image: 9.0.37-jdk11-openjdk-slim
-#    image: 10.0.0-jdk11-openjdk-slim
+#    image: tomcat:9.0.37-jdk11-openjdk-slim
+#    image: tomcat:10.0.0-jdk8-openjdk-slim
+#    image: tomcat:10.0.0-jdk11-openjdk-slim
     ports:
       - '8080:8080'
+      - '8443:8443'
+      - '8005:8005'
     volumes:
       - ./conf:/usr/local/tomcat/conf
       - ./webapps:/usr/local/tomcat/webapps:rw
