@@ -1,4 +1,4 @@
-from	ubuntu:19.04
+from ubuntu:19.04
 
 # Configure apt
 run	echo 'deb http://us.archive.ubuntu.com/ubuntu/ trusty universe' >> /etc/apt/sources.list

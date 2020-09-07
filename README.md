@@ -19,8 +19,9 @@ $ docker rm $(docker ps -a -q) // remove删除所有容器
 
 ## Pull Docker Base image:
 ```
-docker pull alpine:3.11
+docker pull alpine:3.12
 docker pull debian:buster-slim
 docker pull ubuntu:bionic
-docker pull nginx:1.17.8-alpine
+docker pull nginx:1.19.1-
+
 ```
