@@ -1,0 +1,16 @@
+# Gogs.
+version: '3'
+services:
+  gogs:
+#    image: gogs/gogs:latest
+    image: gogs/gogs:0.12.1
+#    image: gogs/gogs-rpi:0.12 # rpi
+    ports:
+      - "9080:3000"
+      - "9022:22"
+    volumes:
+      - ./data:/data:rw
+      - ./backup:/backup:rw
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
