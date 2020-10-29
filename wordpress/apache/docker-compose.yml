@@ -1,0 +1,68 @@
+# wordpress.
+version: '3'
+services:
+#  wordpress:
+#    image: wordpress:5.5.1-php7.4-apache
+#    image: wordpress:5.5.1-php7.3-apache
+#    image: wordpress:php7.4-apache
+#    image: wordpress:php7.3-apache
+#    image: wordpress:5.5.1-php7.4-fpm-alpine
+#    image: wordpress:5.5.1-php7.3-fpm-alpine
+#    image: wordpress:php7.4-fpm-alpine
+#    image: wordpress:php7.3-fpm-alpine
+#    build: .
+#    ports:
+#      - '80:80'
+#    volumes:
+#      - ./conf.d:/usr/local/etc/php/conf.d
+#      - ./htmls:/var/www/html:rw
+#    restart: always
+
+
+services:
+  nginx:
+    image: nginx:1.19.1-alpine
+    ports:
+      - '80:80'
+#      - '443:443'
+    volumes:
+      - ./etc/nginx:/etc/nginx
+      - ./logs/nginx:/var/log/nginx
+      - ./htmls:/var/www/html:rw
+    links:
+      - php
+    restart: always
+
+  php:
+#    image: php:7.3-fpm
+    image: wordpress:php7.3-fpm
+#    image: wordpress:php7.3-fpm-alpine
+    restart: always
+#    ports:
+#      - '9000:9000'
+    volumes:
+      - ./etc/php:/usr/local/etc
+      - ./htmls:/var/www/html:rw
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: wordpress_db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wp123
+      WORDPRESS_TABLE_PREFIX: wp_
+    links:
+      - mysql
+
+  mysql:
+    image: mariadb:10.3.12
+    restart: always
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./etc/mariadb:/etc/mysql
+      - ./db.data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: wordpress_db
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wp123
+      MYSQL_ROOT_PASSWORD: sqlroot123
+    
