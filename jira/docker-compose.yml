@@ -1,15 +1,14 @@
 # Atlassian Jira.
-# https://hub.docker.com/r/atlassian/confluence-server
+# https://hub.docker.com/r/cptactionhank/atlassian-jira
 version: '3'
 services:
   atlan_jira:
-    image: cptactionhank/atlassian-jira:8.0.2
-#    image: atlassian/confluence-server:7.10-alpine
+#    image: cptactionhank/atlassian-jira:8.0.2
+    image: dchevell/jira-software:7.13.0
     ports:
-      - '8090:8090'
-      - '8091:8091'
-#    volumes:
-#      - ./jira-data:/var/atlassian/application-data/jira
+      - '8080:8080'
+    volumes:
+      - ./jira-data:/var/atlassian/application-data/jira
 #      - /etc/localtime:/etc/localtime
 #    environment:
     restart: always
