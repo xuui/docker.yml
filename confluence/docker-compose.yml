@@ -1,0 +1,17 @@
+# Atlassian Confluence.
+# https://hub.docker.com/r/atlassian/confluence-server
+version: '3'
+services:
+  atlan_confluence:
+#    image: cptactionhank/atlassian-confluence:7.8.1
+    image: atlassian/confluence-server:6.6.8-alpine
+#    image: atlassian/confluence-server:7.8.1-alpine
+    ports:
+      - '8090:8090'
+      - '8091:8091'
+    volumes:
+      - ./confluence-data:/var/atlassian/application-data/confluence
+#      - /etc/localtime:/etc/localtime
+#    environment:
+#      JVM_SUPPORT_RECOMMENDED_ARGS: -Djavax.net.ssl.trustStore=/var/atlassian/application-data/confluence/cacerts 
+    restart: always
