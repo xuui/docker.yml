@@ -1,0 +1,9 @@
+# LibreSpeed.
+# https://github.com/librespeed/speedtest
+version: '3'
+services:
+  Wiz:
+    image: adolfintel/speedtest
+    ports:
+      - '8018:80'
+    restart: always
