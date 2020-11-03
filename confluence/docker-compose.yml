@@ -13,6 +13,7 @@ services:
     volumes:
       - ./confluence-data:/var/atlassian/application-data/confluence
       - ./mysql-connector-java-5.1.49.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.49.jar
+      - ./atlassian-extras-decoder-v2-3.2.jar:/opt/atlassian/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.2.jar
 #      - /etc/localtime:/etc/localtime
 #    labels:
 #      - "traefik.enable=true"
