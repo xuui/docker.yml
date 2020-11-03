@@ -11,7 +11,7 @@ services:
     volumes:
       - ./jira-data:/var/atlassian/application-data/jira
 #      - /etc/localtime:/etc/localtime
-      - ./Jira/mysql-connector-java-5.1.25-bin.jar:/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/mysql-connector-java-5.1.25-bin.jar
+      - ./mysql-connector-java-5.1.49-bin.jar:/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/mysql-connector-java-5.1.49-bin.jar
 #      - ./Jira/atlassian-extras-3.2.jar:/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/atlassian-extras-3.2.jar
 #      - ./Jira/atlassian-universal-plugin-manager-plugin-2.22.4.jar:/opt/atlassian/jira/atlassian-jira/WEB-INF/atlassian-bundled-plugins/atlassian-universal-plugin-manager-plugin-2.22.4.jar
 #    environment:
