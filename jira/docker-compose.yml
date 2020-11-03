@@ -5,7 +5,8 @@ version: '3'
 services:
   atlan_jira:
 #    image: cptactionhank/atlassian-jira:8.0.2
-    image: dchevell/jira-software:7.13.0
+#    image: dchevell/jira-software:7.13.0
+    build: .
     ports:
       - '8092:8080'
     volumes:
