@@ -1,14 +1,36 @@
 # PHP7.
 version: '3'
 services:
-  apache:
+  nginxd:
+    image: nginx:1.19.1-alpine
+    ports:
+      - '80:80'
+#      - '443:443'
+    volumes:
+      - ./nginx.d/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx.d/fastcgi.conf:/etc/nginx/fastcgi.conf
+      - ./nginx.d/fastcgi_params:/etc/nginx/fastcgi_params
+      - ./nginx.d/koi-utf:/etc/nginx/koi-utf
+      - ./nginx.d/koi-win:/etc/nginx/koi-win
+      - ./nginx.d/mime.types:/etc/nginx/mime.types
+      - ./nginx.d/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.d/scgi_params:/etc/nginx/scgi_params
+      - ./nginx.d/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./nginx.d/win-utf:/etc/nginx/win-utf
+      - ./logs:/var/log/nginx
+      - ./htmls:/var/www/html:rw
+    links:
+      - phpfpmd
+    restart: always
+
+  phpfpmd:
     image: php:7.4.10-fpm-alpine3.12
 #    image: php:7.3.22-fpm-alpine3.12
 #    build: .
     ports:
-      - '80:80'
       - '9000:9000'
     volumes:
-      - ./conf.d:/usr/local/etc/php/conf.d
+      - ./php.d:/usr/local/etc
       - ./htmls:/var/www/html:rw
     restart: always
+  
