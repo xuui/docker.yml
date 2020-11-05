@@ -3,7 +3,7 @@
 version: '3'
 services:
   atlan_confluence:
-#    image: cptactionhank/atlassian-confluence:7.8.3
+#    image: cptactionhank/atlassian-confluence:7.8.1
 #    image: atlassian/confluence-server:7.8.1-alpine
     build: .
     ports:
