@@ -3,29 +3,21 @@
 version: '3'
 services:
   atlan_confluence:
-#    image: cptactionhank/atlassian-confluence:7.8.1
-#    image: atlassian/confluence-server:6.6.8-alpine
-    image: atlassian/confluence-server:6.4.3-alpine
+#    image: cptactionhank/atlassian-confluence:7.8.3
 #    image: atlassian/confluence-server:7.8.1-alpine
+    build: .
     ports:
       - '8090:8090'
       - '8091:8091'
     volumes:
       - ./confluence-data:/var/atlassian/application-data/confluence
       - ./mysql-connector-java-5.1.49.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.49.jar
-      - ./atlassian-extras-decoder-v2-3.2.jar:/opt/atlassian/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.2.jar
+#      - ./atlassian-extras-decoder-v2-3.2.jar:/opt/atlassian/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.2.jar     
+      - ./atlassian-agent.jar:/opt/atlassian/jira/atlassian-agent.jar
+
 #      - /etc/localtime:/etc/localtime
-#    labels:
-#      - "traefik.enable=true"
-#      - "traefik.port=8090"
-#      - "traefik.frontend.rule=Host:${DOMAIN}"
-#      - "traefik.frontend.entryPoints=http,https"
 #    networks:
 #      - traefik
 #    environment:
 #      JVM_SUPPORT_RECOMMENDED_ARGS: -Djavax.net.ssl.trustStore=/var/atlassian/application-data/confluence/cacerts 
     restart: always
-
-#networks:
-#  traefik:
-#    external: true
