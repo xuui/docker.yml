@@ -1,4 +1,5 @@
 # PHP7.
+# Run cmd: docker cp phpfpmd:/usr/local/etc ./php.d
 version: '3'
 services:
   nginxd:
