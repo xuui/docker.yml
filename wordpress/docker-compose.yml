@@ -14,17 +14,19 @@ services:
       - phpd
     restart: always
 
-    phpd:
+  phpd:
     image: wordpress:5.5.3-php7.4-fpm-alpine
 #    image: wordpress:php7.4-fpm-alpine
 #    image: wordpress:5.5.3-php7.3-fpm-alpine
 #    image: wordpress:php7.3-fpm-alpine
-#    build: ./phpfpm
-    ports:
-      - '9000:9000'
-#    volumes:
-#      - ./etc/php:/usr/local/etc
+#    build: .
+#    ports:
+#      - '9000:9000'
+    volumes:
+      - ./wp-config.php:/var/www/html/wp-config.php
+      - ./wp-content:/var/www/html/wp-content:rw
 #      - ./htmls:/var/www/html:rw
+#      - ./etc/php:/usr/local/etc
     environment:
       WORDPRESS_DB_HOST: mysqldb
       WORDPRESS_DB_NAME: wordpress_db
@@ -37,8 +39,8 @@ services:
 
   mysqldb:
     image: mariadb:10.4.14
-    ports:
-      - '3306:3306'
+#    ports:
+#      - '3306:3306'
     volumes:
 #      - ./etc/mariadb:/etc/mysql
       - ./db.data:/var/lib/mysql
