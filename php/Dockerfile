@@ -1,4 +1,4 @@
-FROM php:7.4.10-fpm-alpine3.12
+FROM php:7.3.22-fpm-alpine3.12
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories;
 
 # persistent dependencies
@@ -24,7 +24,7 @@ RUN set -ex; \
 		libzip-dev \
 	; \
 	\
-	docker-php-ext-configure gd --with-freetype --with-jpeg; \
+	docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --with-png-dir=/usr; \
 	docker-php-ext-install -j "$(nproc)" \
 		bcmath \
 		exif \
