@@ -4,7 +4,7 @@ services:
   nginxd:
     image: nginx:1.19.1-alpine
     ports:
-      - '80:80'
+      - '81:80'
 #      - '443:443'
     volumes:
       - ./nginx.d/conf.d:/etc/nginx/conf.d:ro
@@ -24,13 +24,12 @@ services:
     restart: always
 
   phpfpmd:
-    image: php:7.4.10-fpm-alpine3.12
-#    image: php:7.3.22-fpm-alpine3.12
+#    image: php:7.4.10-fpm-alpine3.12
+    image: php:7.3.22-fpm-alpine3.12
 #    build: .
-    ports:
-      - '9000:9000'
+#    ports:
+#      - '9000:9000'
     volumes:
       - ./php.d:/usr/local/etc
       - ./htmls:/var/www/html:rw
     restart: always
-  
