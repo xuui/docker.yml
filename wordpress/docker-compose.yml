@@ -9,22 +9,22 @@ services:
     volumes:
       - ./etc/nginx:/etc/nginx
       - ./logs/nginx:/var/log/nginx
-      - ./htmls:/var/www/html:rw
+#      - ./htmls:/var/www/html:rw
     links:
-      - phpfpm
+      - phpd
     restart: always
 
-  phpfpm:
-#    image: php:7.4.10-fpm-alpine3.12
-#    image: php:7.3.22-fpm-alpine3.12
+    phpd:
+    image: wordpress:5.5.3-php7.4-fpm-alpine
 #    image: wordpress:php7.4-fpm-alpine
+#    image: wordpress:5.5.3-php7.3-fpm-alpine
 #    image: wordpress:php7.3-fpm-alpine
-    build: ./phpfpm
+#    build: ./phpfpm
     ports:
       - '9000:9000'
-    volumes:
-      - ./etc/php:/usr/local/etc
-      - ./htmls:/var/www/html:rw
+#    volumes:
+#      - ./etc/php:/usr/local/etc
+#      - ./htmls:/var/www/html:rw
     environment:
       WORDPRESS_DB_HOST: mysqldb
       WORDPRESS_DB_NAME: wordpress_db
@@ -36,11 +36,11 @@ services:
     restart: always
 
   mysqldb:
-    image: mariadb:10.3.12
+    image: mariadb:10.4.14
     ports:
       - '3306:3306'
     volumes:
-      - ./etc/mariadb:/etc/mysql
+#      - ./etc/mariadb:/etc/mysql
       - ./db.data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: wordpress_db
