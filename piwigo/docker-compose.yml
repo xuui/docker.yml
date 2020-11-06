@@ -1,0 +1,30 @@
+# Piwigo.
+# https://hub.docker.com/r/linuxserver/piwigo
+version: '3'
+services:
+  piwigo:
+    image: linuxserver/piwigo:2.10.2-ls89
+    ports:
+      - "8081:80"
+    volumes:
+      - ./conf:/config/www/gallery/local/config
+      - ./themes:/config/www/gallery/themes
+      - ./plugins:/config/www/gallery/plugins
+      - ./upload:/config/www/gallery/upload
+    environment:
+      - PUID=1000
+      - PGID=1000
+    links:
+      - piwigodb
+    restart: always
+
+  piwigodb:
+    image: mariadb:10.4.14
+    volumes:
+      - ./db.data/:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=MYROOTPASSWORD
+      - MYSQL_DATABASE=piwigo
+      - MYSQL_USER=piwigo
+      - MYSQL_PASSWORD=MYUSERPASSWORD
+    restart: always
