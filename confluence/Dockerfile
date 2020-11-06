@@ -1,4 +1,3 @@
-#FROM cptactionhank/atlassian-confluence:7.8.3
 FROM cptactionhank/atlassian-confluence:7.8.1
 USER root
 COPY "atlassian-agent.jar" /opt/atlassian/confluence/
