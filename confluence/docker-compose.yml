@@ -13,4 +13,5 @@ services:
       - ./mysql-connector-java-5.1.49.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.49.jar
       - ./atlassian-agent.jar:/opt/atlassian/jira/atlassian-agent.jar
 #      - /etc/localtime:/etc/localtime
+#      - ./confluence-markdown-macro-1.6.4.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/confluence-markdown-macro-1.6.4.jar
     restart: always
