@@ -14,6 +14,7 @@ version: '3'
 services:
   atlassian-Bitbucket:
     image: atlassian/bitbucket-server:7.6.1
+#    build: ./bitbucket
     ports:
       - '7990:7990'
       - '7999:7999'
@@ -25,6 +26,7 @@ services:
 
   atlassian-Confluence:
     image: atlassian/confluence-server:7.8.1
+#    build: ./confluence
     ports:
       - '8090:8090'
       - '8091:8091'
@@ -36,6 +38,7 @@ services:
 
   atlassian-Jira:
     image: atlassian/jira-software:8.0.2
+#    build: ./jira
     ports:
       - '8080:8080'
     volumes:
