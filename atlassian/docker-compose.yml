@@ -5,11 +5,11 @@
 
 # Atlassian Confluence.
 # https://hub.docker.com/r/atlassian/confluence-server
-# docker pull atlassian/confluence-server
+# docker pull atlassian/confluence-server:7.8.1
 
 # Atlassian Jira.
 # https://hub.docker.com/r/atlassian/jira-software
-# docker pull atlassian/jira-software
+# docker pull atlassian/jira-software:8.0.2
 version: '3'
 services:
   atlassian-Bitbucket:
@@ -24,7 +24,7 @@ services:
     restart: always
 
   atlassian-Confluence:
-    image: atlassian/confluence-server
+    image: atlassian/confluence-server:7.8.1
     ports:
       - '8090:8090'
       - '8091:8091'
@@ -35,7 +35,7 @@ services:
     restart: always
 
   atlassian-Jira:
-    image: atlassian/jira-software
+    image: atlassian/jira-software:8.0.2
     ports:
       - '8080:8080'
     volumes:
