@@ -1,0 +1,16 @@
+# Atlassian Bitbucket.
+# https://hub.docker.com/r/cptactionhank/atlassian-bitbucket
+version: '3'
+services:
+  atlan_bitbucket:
+#    image: atlassian/bitbucket-server:7.6.1
+    build: .
+    ports:
+      - '7990:7990'
+      - '7999:7999'
+    volumes:
+      - ./bitbucket-data:/var/atlassian/application-data/bitbucket
+      - ./mysql-connector-java-5.1.49.jar:/var/atlassian/application-data/bitbucket/lib/mysql-connector-java-5.1.49.jar
+#      - ./atlassian-agent.jar:/var/atlassian/bitbucket/atlassian-agent.jar
+#      - /etc/localtime:/etc/localtime
+    restart: always
