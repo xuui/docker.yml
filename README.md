@@ -45,3 +45,7 @@ Ubuntu:
 FROM ubuntu:focal
 sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 ```
+
+## Docker compose.yml 映射
+如果 docker-compose.yml 里面的 volumes: 组所映射的文件路径不纯在。那就用 docke exec -it <容器ID> /bin/bash 进去容器，自己找的位置来处理。
+
