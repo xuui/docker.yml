@@ -13,7 +13,7 @@
 version: '3'
 services:
   atlassian-Bitbucket:
-    image: atlassian/bitbucket-server
+    image: atlassian/bitbucket-server:7.6.1
     ports:
       - '7990:7990'
       - '7999:7999'
