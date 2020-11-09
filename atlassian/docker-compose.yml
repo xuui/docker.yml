@@ -1,0 +1,45 @@
+# Atlassian.
+# Atlassian Bitbucket.
+# https://hub.docker.com/r/atlassian/bitbucket-server
+# docker pull atlassian/bitbucket-server
+
+# Atlassian Confluence.
+# https://hub.docker.com/r/atlassian/confluence-server
+# docker pull atlassian/confluence-server
+
+# Atlassian Jira.
+# https://hub.docker.com/r/atlassian/jira-software
+# docker pull atlassian/jira-software
+version: '3'
+services:
+  atlassian-Bitbucket:
+    image: atlassian/bitbucket-server
+    ports:
+      - '7990:7990'
+      - '7999:7999'
+    volumes:
+      - ./data/bitbucket:/var/atlassian/application-data/bitbucket      
+      - ./mysql-connector-java-5.1.49.jar:/var/atlassian/application-data/bitbucket/lib/mysql-connector-java-5.1.49.jar
+      - /etc/localtime:/etc/localtime
+    restart: always
+
+  atlassian-Confluence:
+    image: atlassian/confluence-server
+    ports:
+      - '8090:8090'
+      - '8091:8091'
+    volumes:
+      - ./data/confluence:/var/atlassian/application-data/confluence
+      - ./mysql-connector-java-5.1.49.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.49.jar
+      - /etc/localtime:/etc/localtime
+    restart: always
+
+  atlassian-Jira:
+    image: atlassian/jira-software
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./data/jira:/var/atlassian/application-data/jira
+      - ./mysql-connector-java-5.1.49-bin.jar:/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/mysql-connector-java-5.1.49-bin.jar
+      - /etc/localtime:/etc/localtime
+    restart: always
