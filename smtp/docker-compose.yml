@@ -5,7 +5,7 @@ services:
   smtpd:
     image: namshi/smtp
     ports:
-      - '10025:25'
+      - '25:25'
 #    volumes:
     environment:
       RELAY_NETWORKS: 0.0.0.0/0
