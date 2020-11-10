@@ -1,0 +1,12 @@
+# SMTP.
+# https://hub.docker.com/r/namshi/smtp/
+version: '3'
+services:
+  smtpd:
+    image: namshi/smtp
+    ports:
+      - '10025:25'
+#    volumes:
+    environment:
+      RELAY_NETWORKS: 0.0.0.0/0
+    restart: always
