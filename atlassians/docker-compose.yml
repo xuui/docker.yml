@@ -1,7 +1,7 @@
 # Atlassian.
 # Atlassian Bitbucket.
 # https://hub.docker.com/r/atlassian/bitbucket-server
-# docker pull atlassian/bitbucket-server
+# docker pull atlassian/bitbucket-server:7.6.1
 
 # Atlassian Confluence.
 # https://hub.docker.com/r/atlassian/confluence-server
