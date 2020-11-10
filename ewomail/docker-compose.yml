@@ -1,0 +1,26 @@
+# EwoMail.
+# https://hub.docker.com/r/bestwu/ewomail
+version: '3'
+services:
+  ewomaild:
+    image: bestwu/ewomailserver
+    ports:
+      - "25:25"
+      - "143:143"
+      - "587:587"
+      - "993:993"
+      - "109:109"
+      - "110:110"
+      - "465:465"
+      - "995:995"
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - ./mysql:/ewomail/mysql/data
+      - ./vmail:/ewomail/mail
+      - ./rainloop:/ewomail/www/rainloop/data
+      - ./ssl/certs/:/etc/ssl/certs/
+      - ./ssl/private/:/etc/ssl/private/
+      - ./ssl/dkim/:/ewomail/dkim/
+    hostname: mail.ewomail.com
+    restart: always
