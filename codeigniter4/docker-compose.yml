@@ -1,0 +1,36 @@
+# PHP7 codeigniter4.
+# Run cmd: docker cp phpfpmd:/usr/local/etc ./php.d
+version: '3'
+services:
+  httpd:
+    image: nginx:1.19.1-alpine
+    ports:
+      - '81:80'
+#      - '443:443'
+    volumes:
+      - ./nginx.d/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx.d/fastcgi.conf:/etc/nginx/fastcgi.conf
+      - ./nginx.d/fastcgi_params:/etc/nginx/fastcgi_params
+      - ./nginx.d/koi-utf:/etc/nginx/koi-utf
+      - ./nginx.d/koi-win:/etc/nginx/koi-win
+      - ./nginx.d/mime.types:/etc/nginx/mime.types
+      - ./nginx.d/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.d/scgi_params:/etc/nginx/scgi_params
+      - ./nginx.d/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./nginx.d/win-utf:/etc/nginx/win-utf
+      - ./logs:/var/log/nginx
+#      - ./htmls:/var/www/html:rw
+      - ./codeigniter:/var/www/html:rw
+    links:
+      - fpmd
+    restart: always
+
+  fpmd:
+    build: .
+#    ports:
+#      - '9000:9000'
+    volumes:
+#      - ./php.d:/usr/local/etc
+#      - ./htmls:/var/www/html:rw
+      - ./codeigniter:/var/www/html:rw
+    restart: always
