@@ -1,5 +1,6 @@
 FROM php:7.3.22-apache-buster
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;
+RUN apt update;
 
 # persistent dependencies
 RUN set -eux; \

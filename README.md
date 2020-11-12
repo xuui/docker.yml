@@ -34,16 +34,19 @@ Alpine:
 ```
 FROM alpine:3.12
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories;
+RUN apk update;
 ```
 Debian:
 ```
 FROM debian:buster-slim
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;
+RUN apt update;
 ```
 Ubuntu:
 ```
 FROM ubuntu:focal
 sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN apt update;
 ```
 
 ## Docker compose.yml 映射

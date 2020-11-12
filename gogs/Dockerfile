@@ -1,5 +1,6 @@
 FROM golang:alpine3.12
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories;
+RUN apk update;
 
 ADD https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64 /usr/sbin/gosu
 RUN chmod +x /usr/sbin/gosu \

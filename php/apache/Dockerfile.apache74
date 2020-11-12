@@ -1,5 +1,6 @@
 FROM php:7.4.10-apache
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;
+RUN apt update;
 
 # persistent dependencies
 RUN set -eux; \

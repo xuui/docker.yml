@@ -1,4 +1,6 @@
 FROM balenalib/armv7hf-alpine:latest
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories;
+RUN apk update;
 
 EXPOSE 22 3000
 
