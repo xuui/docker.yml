@@ -19,7 +19,6 @@ services:
       - ./nginx.d/uwsgi_params:/etc/nginx/uwsgi_params
       - ./nginx.d/win-utf:/etc/nginx/win-utf
       - ./logs:/var/log/nginx
-#      - ./htmls:/var/www/html:rw
       - ./codeigniter:/var/www/html:rw
     links:
       - fpmd
@@ -30,7 +29,6 @@ services:
 #    ports:
 #      - '9000:9000'
     volumes:
-#      - ./php.d:/usr/local/etc
-#      - ./htmls:/var/www/html:rw
+      - ./php.d:/usr/local/etc
       - ./codeigniter:/var/www/html:rw
     restart: always

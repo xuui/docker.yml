@@ -26,6 +26,8 @@ RUN set -ex; \
 		libmemcached-dev \
 		libxml2-dev \
 		libzip-dev \
+#		libldap \
+		openldap openldap-dev \
 	; \
 	\
 	docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --with-png-dir=/usr; \
@@ -41,9 +43,12 @@ RUN set -ex; \
         opcache \
 		xml \
 		zip \
+		ldap \
 	; \
+#	docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu; \ 
+#	docker-php-ext-install ldap;\
 	pecl install imagick-3.4.4 memcached; \
-	docker-php-ext-enable imagick memcached; \
+	docker-php-ext-enable imagick memcached ldap; \
 	\
 	runDeps="$( \
 		scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
