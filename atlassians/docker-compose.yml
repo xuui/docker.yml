@@ -12,37 +12,53 @@
 # docker pull atlassian/jira-software:8.0.2
 version: '3'
 services:
-  atlassian-Bitbucket:
-    image: atlassian/bitbucket-server:7.6.1
-#    build: ./bitbucket
+  bitbucketd:
+#    image: atlassian/bitbucket-server:7.6.1
+    build: ./bitbucket
     ports:
       - '7990:7990'
       - '7999:7999'
     volumes:
-      - ./data/bitbucket:/var/atlassian/application-data/bitbucket      
+      - ./atlassian-agent.jar:/var/atlassian/bitbucket/atlassian-agent.jar
       - ./mysql-connector-java-5.1.49.jar:/var/atlassian/application-data/bitbucket/lib/mysql-connector-java-5.1.49.jar
-      - /etc/localtime:/etc/localtime
+#      - /etc/localtime:/etc/localtime
+      - ./data/bitbucket:/var/atlassian/application-data/bitbucket  
+#    environment:
     restart: always
 
-  atlassian-Confluence:
-    image: atlassian/confluence-server:7.8.1
-#    build: ./confluence
+  confluenced:
+#    image: atlassian/confluence-server:7.8.1
+#    image: cptactionhank/atlassian-confluence:7.8.1
+    build: ./confluence
     ports:
       - '8090:8090'
       - '8091:8091'
     volumes:
-      - ./data/confluence:/var/atlassian/application-data/confluence
+      - ./atlassian-agent.jar:/opt/atlassian/confluence/atlassian-agent.jar
+      - ./atlassian-extras-decoder-v2-3.4.1.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar
       - ./mysql-connector-java-5.1.49.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.49.jar
-      - /etc/localtime:/etc/localtime
+#      - /etc/localtime:/etc/localtime
+      - ./data/confluence:/var/atlassian/application-data/confluence
+#    environment:
     restart: always
 
-  atlassian-Jira:
-    image: atlassian/jira-software:8.0.2
-#    build: ./jira
+  jirad:
+#    image: atlassian/jira-software:8.0.2
+#    image: cptactionhank/atlassian-jira:8.0.2
+    build: ./jira
     ports:
       - '8080:8080'
     volumes:
-      - ./data/jira:/var/atlassian/application-data/jira
+      - ./atlassian-agent.jar:/opt/atlassian/jira/atlassian-agent.jar
       - ./mysql-connector-java-5.1.49-bin.jar:/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/mysql-connector-java-5.1.49-bin.jar
-      - /etc/localtime:/etc/localtime
+#      - /etc/localtime:/etc/localtime
+      - ./data/jira:/var/atlassian/application-data/jira
+#    environment:
     restart: always
+
+
+# Confluence 不支持数据库排序规则 “utf8mb4_general_ci"。 您需要使用 “utf8_bin, utf8mb4_bin"。 
+# 可选参数有：READ-UNCOMMITTED, READ-COMMITTED, REPEATABLE-READ, SERIALIZABLE.
+# [mysqld]
+# transaction-isolation = READ-COMMITTED
+
