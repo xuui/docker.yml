@@ -1,7 +1,7 @@
 # atlassians.yml
 基于 docker-compose.yml 的 Atlassians 全家桶
 
-先拉取基础镜像文件，试验用的基础镜像和版本
+先拉取基础镜像，试验用的镜像和版本如下：
 ```
 docker pull atlassian/bitbucket-server:7.6.1
 docker pull atlassian/confluence-server:7.8.1
