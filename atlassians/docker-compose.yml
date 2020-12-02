@@ -12,21 +12,6 @@
 # docker pull atlassian/jira-software:8.0.2
 version: '3'
 services:
-  bitbucketd:
-#    image: atlassian/bitbucket-server:7.6.1
-    build: ./bitbucket
-    ports:
-      - '7990:7990'
-      - '7999:7999'
-    volumes:
-      - ./atlassian-agent.jar:/opt/atlassian/bitbucket/atlassian-agent.jar
-      - ./atlassian-extras-decoder-v2-3.4.1.jar:/opt/atlassian/bitbucket/app/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar
-      - ./mysql-connector-java-5.1.49.jar:/var/atlassian/application-data/bitbucket/lib/mysql-connector-java-5.1.49.jar
-#      - /etc/localtime:/etc/localtime
-      - ./data/bitbucket:/var/atlassian/application-data/bitbucket  
-#    environment:
-    restart: always
-
   confluenced:
 #    image: atlassian/confluence-server:7.8.1
 #    image: cptactionhank/atlassian-confluence:7.8.1
@@ -56,6 +41,21 @@ services:
       - ./data/jira:/var/atlassian/application-data/jira
 #    environment:
     restart: always
+
+#  bitbucketd:
+#    image: atlassian/bitbucket-server:7.6.1
+#    build: ./bitbucket
+#    ports:
+#      - '7990:7990'
+#      - '7999:7999'
+#    volumes:
+#      - ./atlassian-agent.jar:/opt/atlassian/bitbucket/atlassian-agent.jar
+#      - ./atlassian-extras-decoder-v2-3.4.1.jar:/opt/atlassian/bitbucket/app/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar
+#      - ./mysql-connector-java-5.1.49.jar:/var/atlassian/application-data/bitbucket/lib/mysql-connector-java-5.1.49.jar
+##      - /etc/localtime:/etc/localtime
+#      - ./data/bitbucket:/var/atlassian/application-data/bitbucket  
+##    environment:
+#    restart: always
 
 
 # Confluence 不支持数据库排序规则 “utf8mb4_general_ci"。 您需要使用 “utf8_bin"。 
