@@ -3,13 +3,14 @@ version: '3'
 services:
   minecraftd:
     image: itzg/minecraft-server
+#    image: kitematic/minecraft
     ports:
       - '25565:25565'
     volumes:
       - ./data:/data
     environment:
-      VERSION: 1.7.10
-      FORGEVERSION: 10.13.4.1448
+      VERSION: 1.14.4
+      FORGEVERSION: 28.1.56
       TYPE: FORGE
       EULA: TRUE
     deploy:
