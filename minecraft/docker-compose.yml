@@ -12,4 +12,12 @@ services:
       FORGEVERSION: 10.13.4.1448
       TYPE: FORGE
       EULA: TRUE
+    deploy:
+      resources:
+        limits:
+#          cpus: '0.50'
+          memory: 1024M
+        reservations:
+#          cpus: '0.25'
+          memory: 512M
     restart: always
