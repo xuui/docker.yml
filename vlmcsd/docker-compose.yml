@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  vlmcsd:
+    build: .
+    ports:
+      - "1688:1688"
+    restart: always
