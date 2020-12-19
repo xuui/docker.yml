@@ -2,8 +2,9 @@
 version: '3'
 services:
   minecraftd:
-    image: itzg/minecraft-server
+#    image: itzg/minecraft-server
 #    image: kitematic/minecraft
+    build: .
     ports:
       - '25565:25565'
     volumes:
@@ -11,8 +12,8 @@ services:
     environment:
       VERSION: 1.14.4
       FORGEVERSION: 28.1.56
-      TYPE: FORGE
-      EULA: TRUE
+#      TYPE: FORGE
+#      EULA: TRUE
     deploy:
       resources:
         limits:
