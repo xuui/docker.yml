@@ -2,6 +2,13 @@
 # image: atlassian/jira-software:8.7.1    #V：8.7.1
 # image: cptactionhank/atlassian-jira:8.0.2
 # image: cptactionhank/atlassian-jira-software:8.1.0
+#
+#.......
+# cp setenv.sh  setenv.sh.bak
+# vim setenv.sh
+#JVM_MINIMUM_MEMORY="4096m"                #默认是384m
+#JVM_MAXIMUM_MEMORY="4096m"                #默认是768m
+#......
 FROM atlassian/jira-software:8.7.1
 
 USER root

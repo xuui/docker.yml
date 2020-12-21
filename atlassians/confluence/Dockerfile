@@ -1,6 +1,12 @@
 
 # image: atlassian/confluence-server:7.10.0    #LTS：7.4.6
 # image: cptactionhank/atlassian-confluence:7.9.3
+#
+#......
+# cp setenv.sh setenv.sh.bak
+# vim setenv.sh
+#CATALINA_OPTS="-Xms4096m -Xmx4096m -XX:+UseG1GC ${CATALINA_OPTS}"
+#......
 FROM cptactionhank/atlassian-confluence:7.9.3
 
 USER root
