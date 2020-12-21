@@ -5,16 +5,28 @@
 
 # Atlassian Confluence.
 # https://hub.docker.com/r/atlassian/confluence-server
-# docker pull atlassian/confluence-server:7.8.1
+# docker pull atlassian/confluence-server:7.10.0
+# docker pull cptactionhank/atlassian-confluence:7.9.3
 
 # Atlassian Jira.
 # https://hub.docker.com/r/atlassian/jira-software
-# docker pull atlassian/jira-software:8.0.2
+# docker pull atlassian/jira-software:8.7.1
 version: '3'
 services:
+  jirad:
+    build: ./jira
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./atlassian-agent.jar:/opt/atlassian/jira/atlassian-agent.jar
+      - ./mysql-connector-java-5.1.49-bin.jar:/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/mysql-connector-java-5.1.49-bin.jar
+#      - /etc/localtime:/etc/localtime
+      - ./data/jira:/var/atlassian/application-data/jira:rw
+#      - ./data/jira:/var/atlassian/jira:rw    #By.cptactionhank/atlassian-jira
+#    environment:
+    restart: always
+
   confluenced:
-#    image: atlassian/confluence-server:7.8.1
-#    image: cptactionhank/atlassian-confluence:7.8.1
     build: ./confluence
     ports:
       - '8090:8090'
@@ -24,23 +36,12 @@ services:
       - ./atlassian-extras-decoder-v2-3.4.1.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar
       - ./mysql-connector-java-5.1.49.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.49.jar
 #      - /etc/localtime:/etc/localtime
-      - ./data/confluence:/var/atlassian/application-data/confluence
+#      - ./data/confluence:/var/atlassian/application-data/confluence:rw
+      - ./data/confluence:/var/atlassian/confluence:rw    #By.cptactionhank/atlassian-confluence
 #    environment:
     restart: always
 
-  jirad:
-#    image: atlassian/jira-software:8.0.2
-#    image: cptactionhank/atlassian-jira:8.0.2
-    build: ./jira
-    ports:
-      - '8080:8080'
-    volumes:
-      - ./atlassian-agent.jar:/opt/atlassian/jira/atlassian-agent.jar
-      - ./mysql-connector-java-5.1.49-bin.jar:/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/mysql-connector-java-5.1.49-bin.jar
-#      - /etc/localtime:/etc/localtime
-      - ./data/jira:/var/atlassian/application-data/jira
-#    environment:
-    restart: always
+
 
 #  bitbucketd:
 #    image: atlassian/bitbucket-server:7.6.1
