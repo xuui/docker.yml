@@ -1,4 +1,5 @@
 *.log
+data
 atlassian-agent.jar
 atlassian-agent.txt
 atlassian-extras-decoder*.*
