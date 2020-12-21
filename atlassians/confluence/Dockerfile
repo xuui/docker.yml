@@ -1,5 +1,7 @@
-FROM atlassian/confluence-server:7.8.1
-####FROM cptactionhank/atlassian-confluence:7.8.1
+
+# image: atlassian/confluence-server:7.8.3
+# image: cptactionhank/atlassian-confluence:7.8.3
+FROM atlassian/confluence-server:7.8.3
 
 USER root
 #COPY "atlassian-agent.jar" /opt/atlassian/confluence/
