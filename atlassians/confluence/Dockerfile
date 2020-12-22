@@ -7,8 +7,8 @@
 #CATALINA_OPTS="-Xms4096m -Xmx4096m -XX:+UseG1GC ${CATALINA_OPTS}"
 #......
 FROM cptactionhank/atlassian-confluence:7.9.3
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories;
-RUN apk update && apk add vim;
+#RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories;
+#RUN apk update && apk add vim;
 
 USER root
 #COPY "atlassian-agent.jar" /opt/atlassian/confluence/

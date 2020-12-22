@@ -23,7 +23,12 @@ services:
 #      - /etc/localtime:/etc/localtime
       - ./data/jira:/var/atlassian/application-data/jira:rw
 #      - ./data/jira:/var/atlassian/jira:rw    #By.cptactionhank/atlassian-jira
-#    environment:
+    environment:
+       JVM_MINIMUM_MEMORY: 256m
+       JVM_MINIMUM_MEMORY: 512m
+       JVM_RESERVED_CODE_CACHE_SIZE: 512m
+    links:
+      - mariadbd
     restart: always
 
   confluenced:
@@ -38,7 +43,12 @@ services:
 #      - /etc/localtime:/etc/localtime
 #      - ./data/confluence:/var/atlassian/application-data/confluence:rw
       - ./data/confluence:/var/atlassian/confluence:rw    #By.cptactionhank/atlassian-confluence
-#    environment:
+    environment:
+       JVM_MINIMUM_MEMORY: 256m
+       JVM_MINIMUM_MEMORY: 512m
+       JVM_RESERVED_CODE_CACHE_SIZE: 512m
+    links:
+      - mariadbd
     restart: always
 
 
@@ -58,8 +68,20 @@ services:
 ##    environment:
 #    restart: always
 
+  mariadbd:
+    image: mariadb:10.4.17
+    ports:
+      - '3306:3306'
+    volumes:
+#      - ./my.cnf:/etc/mysql/my.cnf
+      - ./db.conf.d:/etc/mysql/conf.d
+      - ./db.data:/var/lib/mysql:rw
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpasswd@xuui
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
 
-# Confluence 不支持数据库排序规则 “utf8mb4_general_ci"。 您需要使用 “utf8_bin"。 
+# Confluence 不支持数据库排序规则 “utf8mb4_general_ci"。 您需要使用 "。 
 # 可选参数有：READ-UNCOMMITTED, READ-COMMITTED, REPEATABLE-READ, SERIALIZABLE.
 # [mysqld]
 # transaction-isolation = READ-COMMITTED
