@@ -1,4 +1,3 @@
-
 # image: atlassian/jira-software:8.7.1    #V：8.7.1
 # image: cptactionhank/atlassian-jira:8.0.2
 # image: cptactionhank/atlassian-jira-software:8.1.0
