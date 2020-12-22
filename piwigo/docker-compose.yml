@@ -19,7 +19,7 @@ services:
     restart: always
 
   piwigodb:
-    image: mariadb:10.4.14
+    image: mariadb:10.4.17
     volumes:
       - ./db.data/:/var/lib/mysql
     environment:

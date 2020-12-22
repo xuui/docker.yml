@@ -38,7 +38,7 @@ services:
     restart: always
 
   mysqldb:
-    image: mariadb:10.4.14
+    image: mariadb:10.4.17
 #    ports:
 #      - '3306:3306'
     volumes:
