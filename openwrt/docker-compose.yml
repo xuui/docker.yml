@@ -1,0 +1,20 @@
+# OpenWrt.
+# https://github.com/coolsnowwolf/lede
+# https://hub.docker.com/r/sulinggg/openwrt
+# https://mlapp.cn/376.html
+version: '3'
+services:
+  openwrtd:
+#    image: sulinggg/openwrt:rpi4
+#    image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4
+    image: sulinggg/openwrt:x86_64
+#    image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64
+    container_name: openwrtd
+    restart: always
+    networks: 
+     - macnet
+
+# sudo ip link set eth0 promisc on 
+# docker network create -d macvlan --subnet=192.168.31.0/24 --gateway=192.168.31.1 -o parent=eth0 macnet
+# docker run --restart always --name openwrt -d --network macnet --privileged sulinggg/openwrt:rpi4 /sbin/init
+# docker run --restart always --name openwrt -d --network macnet --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4 /sbin/init
