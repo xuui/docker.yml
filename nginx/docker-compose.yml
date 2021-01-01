@@ -20,6 +20,5 @@ services:
 #      - ./htmls:/usr/share/nginx/html:rw
       - ./htmls:/var/www/html:rw
 #      - ./webdav:/usr/share/webdav:rw
-    extra_hosts:
-      - 'nginx:172.10.10.12'
+    container_name: nginxd
     restart: always
