@@ -4,4 +4,5 @@ services:
     build: .
     ports:
       - "1688:1688"
+    container_name: vlmcsd
     restart: always
