@@ -12,7 +12,18 @@ services:
     container_name: openwrtd
     restart: always
     networks: 
-     - macnet
+      macnet:
+        ipv4_address: 192.168.1.254
+
+networks:
+  macnet:
+    driver: bridge
+#    enable_ipv6: true # true
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.1
 
 # sudo ip link set eth0 promisc on 
 # docker network create -d macvlan --subnet=192.168.31.0/24 --gateway=192.168.31.1 -o parent=eth0 macnet
