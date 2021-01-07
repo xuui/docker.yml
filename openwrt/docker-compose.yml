@@ -13,19 +13,19 @@ services:
     restart: always
     networks: 
 #      - macnet
-      openwrt_vlan:
-        ipv4_address: 192.168.1.163
+      owrt_vlan:
+        ipv4_address: "192.168.1.13"
 
 networks:
-  openwrt_vlan:
+  owrt_vlan:
     driver: macvlan
     driver_opts:
       parent: eth0
     ipam:
       driver: default
       config:
-        - subnet: 192.168.1.0/24
-        - gateway: 192.168.1.254
+        - subnet: "192.168.1.0/24"
+        - gateway: "192.168.1.254"
 
 # sudo ip link set eth0 promisc on 
 # docker network create -d macvlan --subnet=192.168.31.0/24 --gateway=192.168.31.1 -o parent=eth0 macnet
