@@ -1,4 +1,4 @@
-# image: atlassian/jira-software:8.7.1    #V：8.7.1
+# image: atlassian/jira-software:8.13.2    #V：8.7.1
 # image: cptactionhank/atlassian-jira:8.1.2
 # image: cptactionhank/atlassian-jira-software:8.1.0
 #
@@ -9,7 +9,7 @@
 #JVM_MAXIMUM_MEMORY="4096m"                #默认是768m
 #......
 #FROM atlassian/jira-software:8.7.1
-FROM atlassian/jira-software:8.15.0
+FROM atlassian/jira-software:8.13.2
 #RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;
 #RUN apt update && apt install vim;
 
