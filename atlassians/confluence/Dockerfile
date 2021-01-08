@@ -1,4 +1,4 @@
-# image: atlassian/confluence-server:7.10.0    #LTS：7.4.6
+# image: atlassian/confluence-server:7.10.1    #LTS：7.4.6
 # image: cptactionhank/atlassian-confluence:7.9.3
 #
 #......
