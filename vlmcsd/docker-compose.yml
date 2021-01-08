@@ -4,5 +4,7 @@ services:
     build: .
     ports:
       - "1688:1688"
+#    volumes: 
+#      - ./vlmcsd:/root/vlmcsd:rw    #git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git
     container_name: vlmcsd
     restart: always
