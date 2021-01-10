@@ -67,10 +67,9 @@ services:
 #    restart: always
 
   mariadbd:
-    image: mariadb:10.5.8
-#    image: mysql:10.4.17
+    image: mysql:8.0.22
     ports:
-      - '3307:3306'
+      - '3306:3306'
     volumes:
 #      - ./my.cnf:/etc/mysql/my.cnf
       - ./db.conf.d:/etc/mysql/conf.d
