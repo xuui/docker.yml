@@ -1,0 +1,24 @@
+[mysqld]
+skip-name-resolve
+character-set-server=utf8mb4
+collation-server=utf8mb4_bin
+default-storage-engine=INNODB
+max_allowed_packet=512M
+innodb_log_file_size=2GB
+transaction-isolation=READ-COMMITTED
+binlog_format=row
+
+#by MySQL Memory Calculator: www.mysqlcalculator.com.
+key_buffer_size=64MB
+query_cache_size=64MB
+tmp_table_size=32MB
+innodb_buffer_pool_size=8MB
+innodb_additional_mem_pool_size=2MB
+innodb_log_buffer_size=2MB
+max_connections=150
+sort_buffer_size=2MB
+read_buffer_size=0.128MB
+read_rnd_buffer_size0.256MB
+join_buffer_size0.128MB
+thread_stack0.196MB
+binlog_cache_size=1MB

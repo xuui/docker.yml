@@ -11,6 +11,7 @@ services:
       - '3306:3306'
     volumes:
 #      - ./my.cnf:/etc/mysql/my.cnf
+      - ./db.conf.d:/etc/mysql/conf.d
       - ./db.data:/var/lib/mysql:rw
     environment:
       MYSQL_DATABASE: xuuidb
