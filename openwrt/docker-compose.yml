@@ -5,29 +5,23 @@
 version: '3'
 services:
   openwrtd:
-#    image: sulinggg/openwrt:rpi4
+    image: sulinggg/openwrt:rpi4
 #    image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4
-    image: sulinggg/openwrt:x86_64
+#    image: sulinggg/openwrt:x86_64
 #    image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64
     container_name: openwrtd
     restart: always
-    networks: 
-#      - macnet
-      owrt_vlan:
-        ipv4_address: "192.168.1.13"
+    networks:
+         rpi-macnet:
+            ipv4_address: 192.168.1.254
 
 networks:
-  owrt_vlan:
-    driver: macvlan
-    driver_opts:
-      parent: eth0
-    ipam:
-      driver: default
-      config:
-        - subnet: "192.168.1.0/24"
-        - gateway: "192.168.1.254"
+  default:
+    external:
+      name: rpi-macnet
 
 # sudo ip link set eth0 promisc on 
-# docker network create -d macvlan --subnet=192.168.31.0/24 --gateway=192.168.31.1 -o parent=eth0 macnet
+# docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 -o parent=eth0 rpi-macnet
+
 # docker run --restart always --name openwrt -d --network macnet --privileged sulinggg/openwrt:rpi4 /sbin/init
 # docker run --restart always --name openwrt -d --network macnet --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4 /sbin/init
