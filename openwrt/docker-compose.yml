@@ -17,10 +17,10 @@ services:
          rpi-macnet:
             ipv4_address: 192.168.1.254
 
-networks:
-  default:
-    external:
-      name: rpi-macnet
+#networks:
+#  default:
+#    external:
+#     name: rpi-macnet
 
 # ip link set eth0 promisc on
 # docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 -o parent=eth0 rpi-macnet
