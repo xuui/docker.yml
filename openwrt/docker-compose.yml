@@ -5,17 +5,17 @@
 version: '3'
 services:
   openwrtd:
-    image: sulinggg/openwrt:rpi4
+#    image: sulinggg/openwrt:rpi4
 #    image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4
 #    image: sulinggg/openwrt:x86_64
-#    image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64
+    image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64
     container_name: openwrtd
-    restart: always
+#    restart: always
 #    command: --network rpi-macnet
 #    privileged: true
-    networks:
-         rpi-macnet:
-            ipv4_address: 192.168.1.254
+#    networks:
+#         rpi-macnet:
+#            ipv4_address: 192.168.1.254
 
 #networks:
 #  default:
