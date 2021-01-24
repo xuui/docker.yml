@@ -2,6 +2,7 @@
 # https://github.com/coolsnowwolf/lede
 # https://hub.docker.com/r/sulinggg/openwrt
 # https://mlapp.cn/376.html
+# https://github.com/sarunas-zilinskas/docker-compose-macvlan
 version: '3'
 services:
   openwrtd:
@@ -16,18 +17,47 @@ services:
 #    networks:
 #      rpimacnet:
 #        ipv4_address: 192.168.1.254
+    networks:
+      vlan:
+        ipv4_address: 192.168.1.60
 
-#networks:
-#  default:
-#    external:
-#     name: rpi-macnet
 networks:
-  rpimacnet:
-    external: true
-    name: rpimacnet
+  dockervlan:
+    #This interface should be defined as using null driver. Do not remove it.
+    driver: null
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.1.0/24"
+          ip_range: "192.168.1.64/26"
+          gateway: "192.168.1.1"
+  dockervlan:
+    #This is the interface which is used for containers networking
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.1.0/24"
+          ip_range: "192.168.1.64/26"
+          gateway: "192.168.1.1"
+
+# https://github.com/sarunas-zilinskas/docker-compose-macvlan
+# ip link add dockervlan link eth0 type macvlan mode bridge
+# ip addr add 192.168.1.249/32 dev dockervlan
+# ip link set dockervlan up
+# ip route add 192.168.1.64/26 dev dockervlan
+
+
+
+
+
+
 
 # ip link set eth0 promisc on
 # docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 -o parent=eth0 rpimacnet
 
 # docker run --restart always --name openwrt -d --network rpi-macnet --privileged sulinggg/openwrt:rpi4 /sbin/init
 # docker run --restart always --name openwrt -d --network rpi-macnet --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4 /sbin/init
+
