@@ -1,0 +1,9 @@
+# Node.js.
+# https://github.com/nodejs/docker-node
+version: '3'
+services:
+  node:
+    image: node:15.7.0-alpine3.12
+    ports:
+      - '8888:8888'
+    restart: always
