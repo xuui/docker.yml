@@ -5,6 +5,7 @@ services:
   Wiz:
     image: wiznote/wizserver
 #    image: wiznote/wizserver-armv7 #rpi
+#    image: wiznote/wizserver-arm64 #rpi
     ports:
       - '8088:80'
       - '9269:9269/udp'
