@@ -3,8 +3,8 @@ version: '3'
 services:
   gogs:
 #    image: gogs/gogs:latest
-    image: gogs/gogs:0.12.1
-#    image: gogs/gogs-rpi:0.12 # rpi
+    image: gogs/gogs:0.12.3
+#    image: gogs/gogs-rpi:0.12.3 # rpi
     ports:
       - "9080:3000"
       - "9022:22"
