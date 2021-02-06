@@ -6,6 +6,7 @@ services:
     ports:
       - '80:80'
     volumes:
+#      - /etc/localtime:/etc/localtime
       - ./nginx.d/conf.d:/etc/nginx/conf.d:ro
       - ./nginx.d/fastcgi.conf:/etc/nginx/fastcgi.conf
       - ./nginx.d/fastcgi_params:/etc/nginx/fastcgi_params
