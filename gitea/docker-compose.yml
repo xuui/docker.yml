@@ -3,10 +3,10 @@ version: '3'
 services:
   gitea:
 #    image: gitea/gitea:latest
-    image: gitea/gitea:1.12.3
+    image: gitea/gitea:1.13.2
     ports:
       - "3000:3000"
-      - "222:22"
+      - "3022:22"
     volumes:
       - ./data:/data:rw
       - /etc/timezone:/etc/timezone:ro
