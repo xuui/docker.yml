@@ -5,7 +5,7 @@ services:
     image: nextcloud:20.0.6-apache
 #    image: nextcloud:20.0.6-fpm-alpine
     ports:
-      - '80:80'
+      - '8880:80'
     volumes:
 #      - /etc/localtime:/etc/localtime
 #      - ./db:/var/lib/mysql # MySQL / MariaDB Data
