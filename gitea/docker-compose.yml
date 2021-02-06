@@ -8,9 +8,9 @@ services:
       - "3000:3000"
       - "3022:22"
     volumes:
-      - ./data:/data:rw
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      - ./data:/data:rw
     environment:
       - USER_UID=1000
       - USER_GID=1000
