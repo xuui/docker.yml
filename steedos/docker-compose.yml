@@ -1,3 +1,5 @@
+# 华炎魔方
+# https://www.steedos.com/help/about
 version: "3"
 services:
   steedos:
