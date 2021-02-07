@@ -8,6 +8,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
+#      - /etc/localtime:/etc/localtime
       - "./data:/app/storage"
     environment:
 #      - PORT=3000
@@ -22,6 +23,7 @@ services:
     image: mongo:4.2
     restart: always
     volumes:
+#      - /etc/localtime:/etc/localtime
       - "./db.data:/data/db"
     command: mongod --oplogSize 128 --profile=1 --slowms=500 --replSet rs0 --bind_ip_all
     ports:
