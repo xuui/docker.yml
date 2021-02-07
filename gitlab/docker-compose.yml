@@ -8,6 +8,7 @@ services:
       - '443:443'
       - '22:22'
     volumes:
+#      - /etc/localtime:/etc/localtime
       - ./conf:/etc/gitlab
       - ./etc:/var/opt/gitlab/gitlab-rails/etc
       - ./logs:/var/log/gitlab

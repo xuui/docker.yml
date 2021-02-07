@@ -7,6 +7,7 @@ services:
       - '80:80'
 #      - '443:443'
     volumes:
+#      - /etc/localtime:/etc/localtime
       - ./etc/nginx:/etc/nginx
       - ./logs/nginx:/var/log/nginx
 #      - ./htmls:/var/www/html:rw
@@ -23,6 +24,7 @@ services:
 #    ports:
 #      - '9000:9000'
     volumes:
+#      - /etc/localtime:/etc/localtime
       - ./wp-config.php:/var/www/html/wp-config.php
       - ./wp-content:/var/www/html/wp-content:rw
 #      - ./htmls:/var/www/html:rw
@@ -42,6 +44,7 @@ services:
 #    ports:
 #      - '3306:3306'
     volumes:
+#      - /etc/localtime:/etc/localtime
 #      - ./etc/mariadb:/etc/mysql
       - ./db.data:/var/lib/mysql
     environment:

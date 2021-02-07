@@ -8,6 +8,7 @@ services:
       - '84:80'
 #      - '443:443'
     volumes:
+#      - /etc/localtime:/etc/localtime
       - ./nginx.d/conf.d:/etc/nginx/conf.d:ro
       - ./nginx.d/fastcgi.conf:/etc/nginx/fastcgi.conf
       - ./nginx.d/fastcgi_params:/etc/nginx/fastcgi_params
@@ -29,6 +30,7 @@ services:
 #    ports:
 #      - '9000:9000'
     volumes:
+#      - /etc/localtime:/etc/localtime
       - ./php.d:/usr/local/etc
       - ./codeigniter:/var/www/html:rw
     restart: always

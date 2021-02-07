@@ -8,6 +8,7 @@ services:
     ports:
       - '25565:25565'
     volumes:
+#      - /etc/localtime:/etc/localtime
       - ./data:/data
     environment:
       VERSION: 1.14.4

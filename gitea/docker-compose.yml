@@ -8,8 +8,8 @@ services:
       - "3000:3000"
       - "3022:22"
     volumes:
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
+#      - /etc/timezone:/etc/timezone:ro
+#      - /etc/localtime:/etc/localtime:ro
       - ./data:/data:rw
     environment:
       - USER_UID=1000

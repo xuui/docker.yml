@@ -6,6 +6,7 @@ services:
     ports:
       - 8080:80
     volumes:
+#      - /etc/localtime:/etc/localtime
       - ./images:/var/www/html/images:rw
       - ./data:/var/www/data:rw
       # - ./LocalSettings.php:/var/www/html/LocalSettings.php

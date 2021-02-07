@@ -10,6 +10,7 @@ services:
     ports:
       - '3306:3306'
     volumes:
+#      - /etc/localtime:/etc/localtime
 #      - ./my.cnf:/etc/mysql/my.cnf
       - ./db.conf.d:/etc/mysql/conf.d
       - ./db.data:/var/lib/mysql:rw

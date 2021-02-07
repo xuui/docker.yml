@@ -8,6 +8,7 @@ services:
       - '53:53'
       - '5380:8080'
     volumes:
+#      - /etc/localtime:/etc/localtime
       - ./dnsmasq.conf:/etc/dnsmasq.conf
     environment:
       HTTP_USER: foo
