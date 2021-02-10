@@ -1,0 +1,13 @@
+# Seafile.
+version: '3'
+services:
+  nginx:
+    image: seafile
+    ports:
+      - '8880:80'
+    volumes:
+#      - /etc/localtime:/etc/localtime
+#      - ./db.data:/var/lib/mysql # MySQL / MariaDB Data
+#      - ./db.data:/var/lib/postgresql/data #PostgreSQL Data
+      - ./seafile:/var/www/html
+    restart: always
