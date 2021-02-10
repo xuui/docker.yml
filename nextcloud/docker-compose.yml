@@ -3,7 +3,6 @@ version: '3'
 services:
   nginx:
     image: nextcloud:20.0.6-apache
-#    image: nextcloud:20.0.6-fpm-alpine
     ports:
       - '8880:80'
     volumes:
