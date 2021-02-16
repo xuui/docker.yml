@@ -1,0 +1,20 @@
+# Resilio Sync.
+version: '3'
+services:
+  resilio-sync:
+    image: ghcr.io/linuxserver/resilio-sync
+    ports:
+      - 8888:8888
+      - 55555:55555
+    volumes:
+#      - /etc/localtime:/etc/localtime
+      - ./config:/config
+      - ./downloads:/downloads
+      - ./data:/sync
+    environment:
+      - PUID=1000
+      - PGID=1000
+#      - TZ=Europe/London
+    container_name: resilio-sync
+    restart: unless-stopped
+    restart: always
