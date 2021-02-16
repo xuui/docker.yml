@@ -1,0 +1,15 @@
+# Portainer.io.
+version: '3'
+services:
+  portainer-io:
+    image: portainer/portaine
+    ports:
+      - 9000:9000
+    volumes:
+#      - /etc/localtime:/etc/localtime
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/config
+      - ./downloads:/downloads
+      - ./data:/data
+    container_name: portainer
+    restart: always
