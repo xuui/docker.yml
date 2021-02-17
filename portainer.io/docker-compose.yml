@@ -2,14 +2,13 @@
 version: '3'
 services:
   portainer-io:
-    image: portainer/portaine
+    image: portainer/portainer-ce:2.1.1-alpine
+#    image: portainer/portainer-ce:2.1.1
     ports:
+      - 8000:8000
       - 9000:9000
     volumes:
 #      - /etc/localtime:/etc/localtime
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./config:/config
-      - ./downloads:/downloads
       - ./data:/data
-    container_name: portainer
     restart: always
