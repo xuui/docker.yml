@@ -56,8 +56,8 @@ networks:
 
 
 # ip link set eth0 promisc on
-# docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 -o parent=eth0 rpimacnet
+# docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 -o parent=eth0 xuui-macnet
 
-# docker run --restart always --name openwrt -d --network rpi-macnet --privileged sulinggg/openwrt:rpi4 /sbin/init
-# docker run --restart always --name openwrt -d --network rpi-macnet --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4 /sbin/init
+# docker run --restart always --name openwrt -d --network xuui-macnet --privileged sulinggg/openwrt:rpi4 /sbin/init
+# docker run --restart always --name openwrt -d --network xuui-macnet --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:rpi4 /sbin/init
 
