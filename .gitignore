@@ -1,4 +1,6 @@
 *.log
+log
+logs
 data
 db.data
 atlassian-agent.jar
