@@ -11,12 +11,7 @@ services:
     volumes:
       - ./mysql-connector-java-5.1.49.jar:/var/atlassian/application-data/bitbucket/lib/mysql-connector-java-5.1.49.jar
       - ./atlassian-agent.jar:/var/atlassian/bitbucket/atlassian-agent.jar
-      - /etc/localtime:/etc/localtime
+#      - /etc/localtime:/etc/localtime
       - ./data:/var/atlassian/application-data/bitbucket
-    container_name: coco_bitbucketd
+    container_name: bitbucketd
     restart: always
-
-networks:
-  default:
-    external:
-      name: net-coco
