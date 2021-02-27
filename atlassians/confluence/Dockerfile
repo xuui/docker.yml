@@ -1,12 +1,13 @@
+# Atlassian Confluence.
 # image: atlassian/confluence-server:7.10.1    #LTS：7.4.6
-# image: cptactionhank/atlassian-confluence:7.9.3
 #
 #......
 # cp setenv.sh setenv.sh.bak
 # vim setenv.sh
 #CATALINA_OPTS="-Xms4096m -Xmx4096m -XX:+UseG1GC ${CATALINA_OPTS}"
 #......
-FROM cptactionhank/atlassian-confluence:7.9.3
+FROM atlassian/confluence-server
+#FROM atlassian/confluence-server:7.10.2
 #RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories;
 #RUN apk update && apk add vim;
 

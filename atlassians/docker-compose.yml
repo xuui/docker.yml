@@ -28,7 +28,7 @@ services:
       JVM_MAXIMUM_MEMORY: 1024m
       JVM_RESERVED_CODE_CACHE_SIZE: 1024m
     links:
-      - mariadbd
+      - atlabd
     restart: always
     networks:
         aasianw:
@@ -44,41 +44,44 @@ services:
       - ./atlassian-extras-decoder-v2-3.4.1.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar
       - ./mysql-connector-java-5.1.49.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.49.jar
 #      - /etc/localtime:/etc/localtime
-#      - ./data/confluence:/var/atlassian/application-data/confluence:rw
-      - ./data/confluence:/var/atlassian/confluence:rw    #By.cptactionhank/atlassian-confluence
+      - ./data/confluence:/var/atlassian/application-data/confluence:rw
+#      - ./data/confluence:/var/atlassian/confluence:rw    #By.cptactionhank/atlassian-confluence
     environment:
       JVM_MINIMUM_MEMORY: 512m
       JVM_MAXIMUM_MEMORY: 1024m
       JVM_RESERVED_CODE_CACHE_SIZE: 1024m
     links:
-      - mariadbd
+      - atlabd
     restart: always
     networks:
         aasianw:
           ipv4_address: 172.240.0.12
 
 #  bitbucketd:
-#    image: atlassian/bitbucket-server:7.6.1
+##    image: atlassian/bitbucket-server:7.6.1
 #    build: ./bitbucket
 #    ports:
 #      - '7990:7990'
 #      - '7999:7999'
 #    volumes:
 #      - ./atlassian-agent.jar:/opt/atlassian/bitbucket/atlassian-agent.jar
-#      - ./atlassian-extras-decoder-v2-3.4.1.jar:/opt/atlassian/bitbucket/app/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar
+##      - ./atlassian-extras-decoder-v2-3.4.1.jar:/opt/atlassian/bitbucket/app/WEB-INF/lib/atlassian-extras-decoder-v2-3.4.1.jar
 #      - ./mysql-connector-java-5.1.49.jar:/var/atlassian/application-data/bitbucket/lib/mysql-connector-java-5.1.49.jar
 ##      - /etc/localtime:/etc/localtime
 #      - ./data/bitbucket:/var/atlassian/application-data/bitbucket  
 ##    environment:
+#    links:
+#      - atlabd
 #    restart: always
 #    networks:
 #        aasianw:
 #          ipv4_address: 172.240.0.13
 
-  mariadbd:
-    image: mysql:8.0.22
+  atlabd:
+#    image: mysql:8.0.23
+    image: mariadb:10.5.9
     ports:
-      - '3306:3306'
+      - '3307:3306'
     volumes:
 #      - ./my.cnf:/etc/mysql/my.cnf
       - ./db.conf.d:/etc/mysql/conf.d
