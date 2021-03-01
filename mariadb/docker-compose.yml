@@ -6,8 +6,6 @@ services:
 #    image: mariadb:10.5.8
 #    image: mariadb:10.4.17
 #    image: mariadb:10.3.27
-#    image: mariadb:10.2.36
-#    image: mariadb:10.1.48
     ports:
       - '3306:3306'
     volumes:
