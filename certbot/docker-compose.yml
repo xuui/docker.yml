@@ -1,0 +1,10 @@
+# certbot https ssl.
+
+version: '3'
+services:
+  certbot:
+    image: certbot/certbot
+    volumes: 
+      - './letsencrypt:/etc/letsencrypt'
+      - './letsencrypt:/var/lib/letsencrypt'
+      
