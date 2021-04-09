@@ -1,0 +1,14 @@
+# Ubuntu OS.
+version: '3'
+services:
+  ubuntu:
+#    image: ubuntu:hirsute # 21.04
+    image: ubuntu:focal # 20.04
+#    image: ubuntu:bionic # 18.04
+#    image: ubuntu:xenial # 16.04
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+#      - /etc/localtime:/etc/localtime
+      - './root:/root'

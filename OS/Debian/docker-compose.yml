@@ -1,0 +1,12 @@
+# Debian OS.
+version: '3'
+services:
+  debian:
+    image: debian:buster-slim # 10.*
+#    image: debian:stretch-slim # 9.*
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+#      - /etc/localtime:/etc/localtime
+      - './root:/root'
